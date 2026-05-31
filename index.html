@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>拾舍設計｜內部 SOP 系統</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="內部系統導覽">
+        <div class="brand">
+          <div class="brand-logo-wrap">
+            <img class="brand-logo" src="assets/logo.jpg" alt="拾舍設計 Logo" />
+          </div>
+          <div>
+            <p class="brand-name">拾舍設計</p>
+            <p class="brand-subtitle">內部 SOP 系統</p>
+          </div>
+        </div>
+
+        <nav class="nav-list" aria-label="主要功能">
+          <button class="nav-item active" type="button" data-view="overview">
+            <span class="nav-icon" aria-hidden="true">▦</span>
+            專案總覽
+          </button>
+          <button class="nav-item" type="button" data-view="archived">
+            <span class="nav-icon" aria-hidden="true">▧</span>
+            封存案件
+          </button>
+          <button class="nav-item" type="button" data-view="workflow">
+            <span class="nav-icon" aria-hidden="true">▤</span>
+            SOP 工作流程
+          </button>
+          <button class="nav-item" type="button" data-view="tasks">
+            <span class="nav-icon" aria-hidden="true">✓</span>
+            我的任務
+          </button>
+          <button class="nav-item" type="button" data-view="calendar">
+            <span class="nav-icon" aria-hidden="true">◷</span>
+            專案行事曆
+          </button>
+          <button class="nav-item" type="button" data-view="documents">
+            <span class="nav-icon" aria-hidden="true">◇</span>
+            文件中心
+          </button>
+          <button class="nav-item" type="button" data-view="team">
+            <span class="nav-icon" aria-hidden="true">☷</span>
+            團隊管理
+          </button>
+        </nav>
+
+        <div class="sync-card" id="syncCard">
+          <p>資料來源</p>
+          <strong id="syncMode">本機模式</strong>
+          <span id="syncHint">填入 Supabase 設定後可切換多人共用。</span>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="system-label" id="viewLabel">專案總覽</p>
+            <h1 id="viewTitle">所有案件進度</h1>
+          </div>
+          <div class="toolbar" aria-label="頁面工具" id="toolbar"></div>
+        </header>
+
+        <section class="summary-grid" aria-label="系統摘要" id="summaryGrid"></section>
+        <section class="view-panel" id="viewPanel" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <script src="supabase-config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
